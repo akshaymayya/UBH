@@ -33,7 +33,7 @@ function LandingPage() {
   };
 
   return (
-    <div className={`landing-page-container ${isExiting ? 'page-exit' : ''}`}>
+    <div className={`landing-page-container ${isExiting ? 'page-exit' : ''}`} style={{ position: 'relative' }}>
       <div style={{
         position: 'absolute',
         top: 0,
@@ -46,7 +46,7 @@ function LandingPage() {
         backgroundRepeat: 'no-repeat',
         zIndex: 0
       }} />
-      <div className="home-overlay" style={{ position: 'absolute', zIndex: 1 }}></div>
+      <div className="home-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}></div>
       <header className="header" style={{ position: 'relative', zIndex: 10 }}>
         <div className="logo">UBH</div>
         <nav className="nav">
