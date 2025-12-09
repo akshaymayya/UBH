@@ -35,19 +35,19 @@ function LandingPage() {
   return (
     <div className={`landing-page-container ${isExiting ? 'page-exit' : ''}`}>
       <div style={{
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '100%',
         backgroundImage: `url(${landingBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        zIndex: -1
+        zIndex: 0
       }} />
-      <div className="home-overlay"></div> {/* Reuse overlay for readability */}
-      <header className="header">
+      <div className="home-overlay" style={{ position: 'absolute', zIndex: 1 }}></div>
+      <header className="header" style={{ position: 'relative', zIndex: 10 }}>
         <div className="logo">UBH</div>
         <nav className="nav">
           <button className="menu-btn" onClick={toggleMenu}>
@@ -67,7 +67,7 @@ function LandingPage() {
         </div>
       </div>
 
-      <main className="hero">
+      <main className="hero" style={{ position: 'relative', zIndex: 10 }}>
         <h1 className="hero-title">
           The Future of <br />
           Tech & Business. <span className="highlight">UBH.</span>
