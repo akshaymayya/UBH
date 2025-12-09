@@ -7,7 +7,7 @@ import BlogPost from './BlogPost';
 import sponsor1 from './assets/sponsor1.png';
 import sponsor2 from './assets/sponsor2.png';
 import sponsor3 from './assets/sponsor3.png';
-import landingBg from './assets/landing_bg_v2.png';
+import landingBg from './assets/landing_bg.jpg';
 
 function LandingPage() {
   const [email, setEmail] = useState('');
