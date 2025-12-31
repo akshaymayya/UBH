@@ -3,13 +3,30 @@ import { useParams, Link } from 'react-router-dom';
 import homeBg from './assets/home_bg.jpg';
 import blog1 from './assets/blog_1.jpg';
 import blog2 from './assets/blog_2.jpg';
+import blog3 from './assets/blog_3.jpg';
 
 function BlogPost() {
     const { id } = useParams();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const animatedElements = document.querySelectorAll('.animate-fade-up');
+        animatedElements.forEach(el => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, [id]);
 
     const blogContent = {
         1: {
@@ -92,6 +109,33 @@ function BlogPost() {
                     <p>What we're witnessing is nothing less than a new industrial revolution—one that will touch every sector of the economy. The companies leading this charge aren't just building better mousetraps; they're reimagining the fundamental systems that power modern civilization.</p>
                     <p>For entrepreneurs, the message is clear: the opportunity to build massively valuable companies while addressing humanity's most pressing challenge has never been greater. For investors, sustainable tech represents not a moral choice but an economic imperative. For society, this transition from the old industrial economy to a sustainable one will define prosperity and quality of life for generations to come.</p>
                     <p>The gold rush is on. The prospectors who strike it rich this time won't be extracting resources from the earth—they'll be protecting it.</p>
+                </>
+            )
+        },
+        3: {
+            title: "Leadership in the Digital Age",
+            date: "December 08, 2025",
+            subtitle: "Adapting management strategies for remote teams in a hyper-connected world",
+            image: blog3,
+            content: (
+                <>
+                    <p>In the rapidly evolving landscape of the 21st century, leadership has transcended traditional command-and-control structures. The digital age demands a new breed of leaders who are agile, empathetic, and technologically savvy. As remote work becomes the norm and global teams collaborate across time zones, the ability to build trust and cohesion virtually is paramount.</p>
+
+                    <h2>The Shift to Virtual Leadership</h2>
+                    <p>Gone are the days when leadership was defined by physical presence. Today, influence is exerted through digital channels—Zoom calls, Slack messages, and collaborative platforms. Effective leaders must master the art of digital communication, ensuring clarity and intent are conveyed without the nuances of face-to-face interaction.</p>
+                    <p>This shift requires a deliberate effort to foster culture. Virtual "water cooler" moments, regular check-ins, and transparent communication strategies are essential to combat isolation and keep teams aligned with organizational goals.</p>
+
+                    <h2>Empathy as a Core Competency</h2>
+                    <p>The digital age can often feel impersonal. Leaders must work harder to demonstrate empathy and emotional intelligence. Understanding the unique challenges of remote employees—from balancing home life to dealing with digital fatigue—is crucial. Leaders who prioritize well-being and psychological safety will build resilient, high-performing teams.</p>
+
+                    <h2>Data-Driven Decision Making</h2>
+                    <p>With the abundance of data available, leaders must be adept at interpreting analytics to drive strategy. However, the human element remains irreplaceable. The best leaders balance data insights with intuition and ethical considerations, ensuring that technology serves the organization's human values.</p>
+
+                    <h2>Continuous Learning and Adaptation</h2>
+                    <p>The half-life of a learned skill is shrinking. Leaders must embody a growth mindset, continuously upskilling themselves and their teams. Embracing new tools, staying ahead of industry, and fostering a culture of innovation are non-negotiable for survival in the digital economy.</p>
+
+                    <h2>Conclusion</h2>
+                    <p>Leadership in the digital age is not about mastering technology, but about mastering the human response to it. By combining digital proficiency with deep empathy and strategic foresight, today's leaders can navigate uncertainty and guide their organizations toward a prosperous future.</p>
                 </>
             )
         }
