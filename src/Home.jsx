@@ -9,6 +9,7 @@ import blog3 from './assets/blog_3.jpg';
 import feature1 from './assets/feature_1.jpg';
 
 import homeBg from './assets/home_bg_final.jpg';
+import logo from './assets/logo.png';
 
 function Home() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -125,7 +126,9 @@ function Home() {
             }} />
             <div className="home-overlay"></div>
             <header className="header">
-                <div className="logo">UBH</div>
+                <div className="logo-container">
+                    <img src={logo} alt="UBH Logo" className="logo-img-main" />
+                </div>
                 <nav className="nav">
                     <button className="menu-btn" onClick={toggleMenu}>
                         Menu <span className="hamburger">≡</span>

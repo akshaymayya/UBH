@@ -9,6 +9,8 @@ import sponsor2 from './assets/sponsor2.png';
 import sponsor3 from './assets/sponsor3.png';
 import landingBg from './assets/landing_bg.jpg';
 
+import logo from './assets/logo.png';
+
 function LandingPage() {
   const [email, setEmail] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +50,9 @@ function LandingPage() {
       }} />
       <div className="home-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}></div>
       <header className="header" style={{ position: 'relative', zIndex: 10 }}>
-        <div className="logo">UBH</div>
+        <div className="logo-container">
+          <img src={logo} alt="UBH Logo" className="logo-img-main" />
+        </div>
         <nav className="nav">
           <button className="menu-btn" onClick={toggleMenu}>
             Menu <span className="hamburger">≡</span>
